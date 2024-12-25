@@ -19,7 +19,7 @@ case "$choice" in
         apt-get upgrade -y
         apt-get update
         apt-get install -y git curl wget unzip
-        apt-get install -y php8.1 php8.1-cli php8.1-gd php8.1-dom php8.1-iconv php8.1-mbstring php8.1-mysql php8.1-openssl php8.1-pdo php8.1-pdo-mysql php8.1-tokenizer php8.1-xml php8.1-zip php8.1-ldap
+        apt-get install -y php php-cli php--gd php-dom php-iconv php-mbstring php-mysql php-openssl php-pdo php-pdo-mysql php-tokenizer php-xml php-zip php-ldap
         apt-get install -y apache2
         curl https://raw.githubusercontent.com/Chewbaccalakis/scripts/refs/heads/main/debian/apache_bookstack.conf -o /etc/apache2/sites-available/bookstack.conf
         a2ensite bookstack.conf
