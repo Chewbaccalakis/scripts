@@ -24,7 +24,7 @@ case "$choice" in
         curl https://raw.githubusercontent.com/Chewbaccalakis/scripts/refs/heads/main/debian/apache_bookstack.conf -o /etc/apache2/sites-available/bookstack.conf
         a2ensite bookstack.conf
         curl -sS https://getcomposer.org/installer -o composer-setup.php
-        php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+        php composer-setup.php --install-dir=/usr/local/bin --filename=composer
         mkdir -p /var/www/bookstack/
         git clone https://github.com/BookStackApp/BookStack.git --branch release --single-branch /var/www/bookstack/
         cd /app
