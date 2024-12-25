@@ -23,6 +23,7 @@ case "$choice" in
         apt-get install -y apache2
         curl https://raw.githubusercontent.com/Chewbaccalakis/scripts/refs/heads/main/debian/apache_bookstack.conf -o /etc/apache2/sites-available/bookstack.conf
         a2ensite bookstack.conf
+        systemctl reload apache2
         curl -sS https://getcomposer.org/installer -o composer-setup.php
         php composer-setup.php --install-dir=/usr/local/bin --filename=composer
         mkdir -p /var/www/bookstack/
