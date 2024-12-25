@@ -18,17 +18,17 @@ case "$choice" in
         apt-get update
         apt-get upgrade -y
         apt-get update
-        apt-get install -y git curl wget unzip
-        apt-get install -y php php-cli php--gd php-dom php-iconv php-mbstring php-mysql php-openssl php-pdo php-pdo-mysql php-tokenizer php-xml php-zip php-ldap
-        apt-get install -y apache2
+        apt-get install -y git curl wget unzip apache2
+        apt-get install -y php php-cli php-gd php-dom php-iconv php-mbstring php-mysql php-pdo php-pdo-mysql php-tokenizer php-xml php-zip php-ldap
         curl https://raw.githubusercontent.com/Chewbaccalakis/scripts/refs/heads/main/debian/apache_bookstack.conf -o /etc/apache2/sites-available/bookstack.conf
         a2ensite bookstack.conf
+        a2enmod php8.2
         systemctl reload apache2
         curl -sS https://getcomposer.org/installer -o composer-setup.php
         php composer-setup.php --install-dir=/usr/local/bin --filename=composer
         mkdir -p /var/www/bookstack/
         git clone https://github.com/BookStackApp/BookStack.git --branch release --single-branch /var/www/bookstack/
-        cd /app
+        cd /var/www/bookstack
         composer install --no-dev
         php artisan key:generate
         ;;
